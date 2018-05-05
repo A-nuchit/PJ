@@ -36,6 +36,50 @@
                 $('#data-show-time').html(data);
             })
         }, 500)
+
+	window.onload = function(){
+var chart = new CanvasJS.Chart("chartContainer", {
+    title: {
+        text: "Temperature of Each Boiler"
+    },
+    axisY: {
+        title: "Temperature (  C)",
+        suffix: "   C"
+    },
+    data: [{
+        type: "column",
+        yValueFormatString: "#,###   C",
+        indexLabel: "{y}",
+        dataPoints: [
+            { label: "boiler1", y: 206 },
+            { label: "boiler2", y: 163 }
+        ]
+    }]
+});
+function updateChart() {
+    var boilerColor, yVal , testint;
+    var dps = chart.options.data[0].dataPoints;
+        $.get('/temp_1', function(data){
+                $('#data-show-temp1').html(data);
+                yVal = parseInt(data);
+                boilerColor = yVal > 200 ? "#FF2500" : yVal >= 170 ? "#FF6000" : yVal < 170 ? "#6B8E23 " : null;
+                dps[0] = {label: "Boiler "+(1) , y: yVal, color: boilerColor};
+            })
+        $.get('/hum_1', function(data){
+                $('#data-show-hum2').html(data);
+                yVal = parseInt(data);
+                boilerColor = yVal > 200 ? "#FF2500" : yVal >= 170 ? "#FF6000" : yVal < 170 ? "#6B8E23 " : null;
+                dps[1] = {label: "Boiler "+(2) , y: yVal, color: boilerColor};
+            })
+    chart.options.data[0].dataPoints = dps;
+    chart.render();
+};
+updateChart();
+setInterval(function() {updateChart()}, 500);
+
+}
+
+    </script>
     </script>
     
 <style> 
@@ -183,8 +227,7 @@ tr{
                 <th><center><h3><div id="data-show-temp2"></div></h3></center></th>
         </tr>
 </table>
-</div>
-
+</div>¬
 </center>
 </body>
 </html>
