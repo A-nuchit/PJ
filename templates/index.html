@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +46,19 @@
 }
 .container {
  width: 50%;
- }    
+ }
+body {
+    background-image: url(https://www.img.in.th/images/6acfab48a18e69c247ee92cad0dcae74.jpg);
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: fixed;
+}  
+#mon{
+	border-radius: 25px;	
+}  
+tr{
+      background-color:#ceffd8;
+}
 </style>
 </head>
 <body>
@@ -63,40 +74,65 @@
 	<input type="submit">
 </form>
 -->
-<br><h3>Auto Mode</h3>
-
-<form action="/select_vak" method="GET">
-        Select vak : <select name="vak_mode" class="btn btn-default dropdown-toggle" >
-                <option value="0">ผักบุ้ง</option>
-                <option value="1">ถั่วฝักยาว</option>
-                <option value="2">คะน้า</option>
-        </select>
-	<br>
-<div class="scop">
-	<!--Set Time Run Auto : <input type="text" class="form-control" name="time_vak" id="input_vak" placeholder="Time_set"><br>-->
-        <input type="submit" class="btn btn-danger" value="Submit">
+<div class="container">
+        <table class="table table-bordered" id="mon">
+        <tr>
+                <th>
+                <center>
+		<br><h3>Auto Mode</h3>
+		<form action="/select_vak" method="GET">
+        		Select vag : <select name="vak_mode" class="btn btn-default dropdown-toggle" >
+                	<option value="0">ผักบุ้ง</option>
+                	<option value="1">ถั่วฝักยาว</option>
+                	<option value="2">คะน้า</option>
+        	</select>
+		<div class="scop">
+		<!--Set Time Run Auto : <input type="text" class="form-control" name="time_vak" id="input_vak" placeholder="Time_set"><br>-->
+        	<input type="submit" class="btn btn-danger" value="Submit">
+		</div>
+		</form>
+		<br></center>
+                </th>
+        </tr>
+        </table>
 </div>
-</form>
 
-<br><h3>Set Time Mode</h3>
-<form class="cf" action="/Time_Set" method="GET">
-  <div class="scop">
-   <h4>Time Start</h4> <input type="time" class="form-control"  name="Time_Start" id="input-name" placeholder="Time_Start">
-   <h4>Time End</h4> <input type="time" class="form-control" name="Time_End" id="input-subject" placeholder="Time_End">
-  </div><br>
-  <input type="submit" class="btn btn-danger"  value="Submit" id="input-submit">
-</form>
+<div class="container">
+        <table class="table table-bordered">
+        <tr>
+                <th>
+		<center>
+			<br><h3>Set Time Mode</h3>
+			<form class="cf" action="/Time_Set" method="GET">
+  			<div class="scop">
+   				<h4>Time Start</h4> <input type="time" class="form-control"  name="Time_Start" id="input-name" placeholder="Time_Start">
+   				<h4>Time End</h4> <input type="time" class="form-control" name="Time_End" id="input-subject" placeholder="Time_End">
+  			</div><br>
+  			<input type="submit" class="btn btn-danger"  value="Submit" id="input-submit">
+			</form>
+			<br></center>
+                </th>
+        </tr>
+        </table>
+</div>
 
-<br><h3>Manual Mode</h3>
-<form action="/manual_Set" method="get">
-Water 1
-	<button name="water1_ON" type="submit" class="btn btn-info" value="1">ON</button>
-	<button name="water1_OFF" type="submit" class="btn btn-info"  value="0">OFF</button>
-<!--<br>Water 2
-	<button name="water2" type="submit" value="1">ON</button>
-	<button name="water2" type="submit" value="0">OFF</button>
--->
-</form>
+<div class="container">
+	<table class="table table-bordered">
+	<tr>
+		<th>
+		<center>
+		<br><h3>Manual Mode</h3>
+		<form action="/manual_Set" method="get">
+		Water 1
+			<button name="water1_ON" type="submit" class="btn btn-info" value="1">ON</button>
+			<button name="water1_OFF" type="submit" class="btn btn-info"  value="0">OFF</button>
+		</form>
+	        <br></center>
+		</th>
+	</tr>
+	</table>
+</div>
+
 <br>
 <h1><u> Data table</u> </h1>
 <br>
