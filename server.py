@@ -1,11 +1,11 @@
 import paho.mqtt.client as mqtt
 from multiprocessing import Process
 import time;
-import datetime 
+import datetime
 import runpy
 from random import randint
 from flask import Flask, request, render_template
-#1from flask_socketio import SocketIO, emit
+#from flask_socketio import SocketIO, emit
 
 app = Flask(__name__)
 #socketio = SocketIO(app)
@@ -221,5 +221,4 @@ if __name__ == '__main__':
 #	print datetime.datetime.now()
 	app.run(debug=True, host='0.0.0.0', port=8181)
 
-mqttc.loop_forever()
- 
+mqttc.loop_forever() 
